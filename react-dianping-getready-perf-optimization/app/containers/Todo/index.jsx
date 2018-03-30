@@ -7,6 +7,7 @@ import List from '../../components/List'
 class Todo extends React.Component {
     constructor(props, context) {
         super(props, context);
+        // 性能检测
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         this.state = {
             todos: []
@@ -33,6 +34,7 @@ class Todo extends React.Component {
         let data = this.state.todos
         this.setState({
             todos: data.filter(item => {
+              console.log('item==>',item);
                 if (item.id !== id) {
                     return item
                 }
